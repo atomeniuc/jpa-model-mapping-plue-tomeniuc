@@ -29,8 +29,8 @@ public class Alumni extends AbstractPersistable<Long> {
     @NotNull private Department department;
 
     @Embedded
-    @Column(name = "demographic_data", nullable = false)
-    @NotNull private DemographicData demographicData;
+    @Column(name = "demographic_data")
+    private DemographicData demographicData;
 
     @NotNull private String email;
 

@@ -1,25 +1,23 @@
 package at.spengergasse.plue.jpamodelmapping.persistence;
 
-import at.spengergasse.plue.jpamodelmapping.domain.Token;
+import at.spengergasse.plue.jpamodelmapping.domain.Department;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
-import static at.spengergasse.plue.jpamodelmapping.TestFixtures.token;
+import static at.spengergasse.plue.jpamodelmapping.TestFixtures.department;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @DataJpaTest
-public class TokenRepositoryTest {
+public class DepartmentRepositoryTest {
     @Autowired
-    TokenRepository repository;
+    private DepartmentRepository departmentRepository;
 
     @Test
     void ensureSaveAndReadWorks() {
-        Token a = token();
-        var saved = repository.saveAndFlush(a);
-
-        assertThat(saved).isSameAs(a);
+        Department department = department();
+        var saved = departmentRepository.saveAndFlush(department);
+        assertThat(saved).isSameAs(department);
         assertThat(saved.getId()).isNotNull();
     }
 }
-
